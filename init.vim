@@ -26,7 +26,7 @@ set	cc=80
 syntax	on
 "set	laststatus=2
 set	noshowmode
-set background=light
+set background=dark
 set nowrap
 
 function! ToggleMouse()
@@ -64,22 +64,7 @@ let	g:gruvbox_contrast_light = 'medium'
 let g:gruvbox_contrast_dark = 'light'
 
 
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
-      \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers'
-      \ },
-      \ 'component_type': {
-      \   'buffers': 'tabsel'
-      \ }
-      \ }
+let g:lightline = { 'colorscheme': 'gruvbox', }
 
 let g:lightline_gruvbox_style = 'medium'
 let g:lightline_gruvbox_color = 'both'
@@ -132,6 +117,8 @@ Plug    'hrsh7th/cmp-buffer'
 Plug    'hrsh7th/cmp-path'
 Plug    'hrsh7th/cmp-cmdline'
 Plug    'hrsh7th/nvim-cmp'
+Plug    'hrsh7th/vim-vsnip'
+Plug    'hrsh7th/vim-vsnip-integ'
 
 call	plug#end()
 
