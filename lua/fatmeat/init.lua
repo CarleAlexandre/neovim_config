@@ -3,8 +3,13 @@ vim.g.mapleader = ' '
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 
+local harpoon_ui = require('harpoon.ui')
+vim.keymap.set('n', '<leader>k', harpoon_ui.nav_next, {})
+vim.keymap.set('n', '<leader>j', harpoon_ui.nav_prev, {})
+vim.keymap.set('n', '<leader>h', harpoon_ui.toggle_quick_menu, {})
 
-
+local harpoon_add = require('harpoon.mark')
+vim.keymap.set('n', '<leader>aa', harpoon_add.add_file, {})
 
 local cmp = require'cmp'
 
@@ -27,7 +32,7 @@ local cmp = require'cmp'
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
@@ -81,6 +86,7 @@ lspconfig.rust_analyzer.setup {
     capabilities = capabilities,
 	setting = {
 		['clangd'] = {
+			"--header-insertion=none"
 		},
 	},
 }
